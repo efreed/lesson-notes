@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sample Web Page</title>
+</head>
+<body>
+	<div data-role="tabs">
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#day">Day</a></li>
+				<li><a href="#night">Night</a></li>
+			</ul>
+		</div>
+		<div id="day">
+			<div class="sun">
+				*
+			</div>
+			<div class="cloud">
+				~o~
+			</div>
+			<div class="grass">
+				||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+			</div>
+		</div>
+		<div id="night">
+		</div>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script src="https://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+
+	<style>
+	@import url(https://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css);
+		
+	#day {
+		background-color: skyblue;
+		height: 500px;
+	}
+	.cloud {
+		font-size: 10em;
+		color: white;
+		opacity: 0.4;
+	}
+	.grass {
+		position: absolute;
+		bottom: 0;
+		color: green;
+		font-size: 30px;
+		letter-spacing: 2px;
+	}
+	.sun {
+		position: absolute;
+		right: 0;
+		font-size: 9em;
+		color: yellow;
+	}
+
+	#night {
+		background-color: black;
+		height: 500px;
+	}
+	</style>
+	<script>
+	setInterval(function() {
+		var h = $("#night").height();
+		var w = $("#night").width();
+		$("<div>.</div>")
+				.css("position", "absolute")
+				.css("left", Math.random() * w + "px")
+				.css("top", Math.random() * h + "px")
+				.appendTo("#night")
+				.hide(15000);
+	}, 20);
+	</script>
+</body>
+</html>
